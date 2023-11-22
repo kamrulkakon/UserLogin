@@ -14,12 +14,15 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepo;
     @Override
-    public UserDtls createUser(UserDtls user) {
+    public UserDtls createUser(UserDtls user)
+    {
         return userRepo.save(user);
     }
 
     @Override
-    public boolean checkEmail(String email) {
-        return false;
+    public boolean checkEmail(String email)
+    {
+
+        return userRepo.existsByEmail(email);
     }
 }
